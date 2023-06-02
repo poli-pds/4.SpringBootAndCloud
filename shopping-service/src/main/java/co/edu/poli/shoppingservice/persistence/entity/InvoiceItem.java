@@ -1,5 +1,6 @@
 package co.edu.poli.shoppingservice.persistence.entity;
 
+import co.edu.poli.shoppingservice.model.Product;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
@@ -25,6 +26,8 @@ public class InvoiceItem {
     private Double price;
     @Column(name = "product_id")
     private Long productId;
+    @Transient
+    private Product product;
     @Transient
     private Double subTotal;
 

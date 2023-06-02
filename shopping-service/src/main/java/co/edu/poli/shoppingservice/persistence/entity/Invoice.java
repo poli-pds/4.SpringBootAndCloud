@@ -1,5 +1,6 @@
 package co.edu.poli.shoppingservice.persistence.entity;
 
+import co.edu.poli.shoppingservice.model.Customer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -26,6 +27,8 @@ public class Invoice {
     private String description;
     @Column(name = "customer_id")
     private Long customerId;
+    @Transient
+    private Customer customer;
 
     @Valid
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
